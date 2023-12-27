@@ -4,6 +4,7 @@ using Church_Solution_API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Church_Solution_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231227122456_POUKDB_v09")]
+    partial class POUKDB_v09
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,19 +107,18 @@ namespace Church_Solution_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9f2238e6-b722-4415-a8f0-234690e79fc0",
+                            Id = "fba0b88a-0c47-415d-8cf3-6e5b7de578d5",
                             AccessFailedCount = 0,
                             AccountActive = false,
-                            ConcurrencyStamp = "dd01e69a-e65d-4ce9-83ef-93188d3a0431",
+                            ConcurrencyStamp = "841d0e5c-bbe4-4c38-9dff-1a49fd83b228",
                             Email = "admin@mail.com",
                             EmailConfirmed = true,
-                            FullName = "Super Admin",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@MAIL.COM",
                             NormalizedUserName = "ADMIN@MAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAECqlwJODv63H0KGuLbICshuaBCoTh9j0oqbd03eFGbHhaYz+oCamNnF1acCfq1xVlA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGJVcDQk8BfohFtVO37EfPPWSTi2OP0V8b243QA3UmzF1N09pMtmeYs1i4A44UT6/A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "10ef872c-c2d8-42f6-b883-f46f9fc6f7dc",
+                            SecurityStamp = "f9dfde4b-7f76-4f70-afe0-3890592a65de",
                             TwoFactorEnabled = false,
                             UserName = "admin@mail.com"
                         });
@@ -479,17 +481,17 @@ namespace Church_Solution_API.Migrations
                     b.HasData(
                         new
                         {
-                            PermissionActionId = "2bcaf127-b3e6-410e-ae4c-4a5afd461512",
-                            CreatedBy = "9f2238e6-b722-4415-a8f0-234690e79fc0",
-                            CreatedDate = new DateTime(2023, 12, 27, 19, 29, 28, 301, DateTimeKind.Local).AddTicks(3167),
+                            PermissionActionId = "2735282e-cdc4-4293-883c-4294880f765b",
+                            CreatedBy = "fba0b88a-0c47-415d-8cf3-6e5b7de578d5",
+                            CreatedDate = new DateTime(2023, 12, 27, 19, 24, 56, 576, DateTimeKind.Local).AddTicks(6419),
                             Name = "read",
                             isActive = true
                         },
                         new
                         {
-                            PermissionActionId = "73f34412-eaa6-47e5-ac9c-7a8fe9698ab9",
-                            CreatedBy = "9f2238e6-b722-4415-a8f0-234690e79fc0",
-                            CreatedDate = new DateTime(2023, 12, 27, 19, 29, 28, 301, DateTimeKind.Local).AddTicks(3179),
+                            PermissionActionId = "7403cd3d-2093-43ad-b078-e427941d7d1a",
+                            CreatedBy = "fba0b88a-0c47-415d-8cf3-6e5b7de578d5",
+                            CreatedDate = new DateTime(2023, 12, 27, 19, 24, 56, 576, DateTimeKind.Local).AddTicks(6432),
                             Name = "create",
                             isActive = true
                         });
@@ -523,9 +525,9 @@ namespace Church_Solution_API.Migrations
                     b.HasData(
                         new
                         {
-                            PermissionNamespaceId = "6cc28936-852a-4e75-8def-0165cf72a4fc",
-                            CreatedBy = "9f2238e6-b722-4415-a8f0-234690e79fc0",
-                            CreatedDate = new DateTime(2023, 12, 27, 19, 29, 28, 301, DateTimeKind.Local).AddTicks(3141),
+                            PermissionNamespaceId = "aef6b819-42c4-450c-adbb-da6d496d9c76",
+                            CreatedBy = "fba0b88a-0c47-415d-8cf3-6e5b7de578d5",
+                            CreatedDate = new DateTime(2023, 12, 27, 19, 24, 56, 576, DateTimeKind.Local).AddTicks(6395),
                             Name = "PermissionNamespace",
                             isActive = true
                         });
@@ -555,17 +557,17 @@ namespace Church_Solution_API.Migrations
                     b.HasData(
                         new
                         {
-                            PermissionRoleAssigmentId = "135cd52b-8d48-48cf-bc3a-e790dd188f36",
-                            PermissionActionId = "2bcaf127-b3e6-410e-ae4c-4a5afd461512",
-                            PermissionNamespaceId = "6cc28936-852a-4e75-8def-0165cf72a4fc",
-                            RoleId = "43fd2c28-62bc-4a80-8733-bb4448b9bd05"
+                            PermissionRoleAssigmentId = "cd6953a8-7559-4ac5-923d-734669e3d73b",
+                            PermissionActionId = "2735282e-cdc4-4293-883c-4294880f765b",
+                            PermissionNamespaceId = "aef6b819-42c4-450c-adbb-da6d496d9c76",
+                            RoleId = "b710f5f0-98a4-4453-8ac7-d9211e7810b6"
                         },
                         new
                         {
-                            PermissionRoleAssigmentId = "07c67331-a4e1-40ae-a5e4-2f04a50003c9",
-                            PermissionActionId = "73f34412-eaa6-47e5-ac9c-7a8fe9698ab9",
-                            PermissionNamespaceId = "6cc28936-852a-4e75-8def-0165cf72a4fc",
-                            RoleId = "43fd2c28-62bc-4a80-8733-bb4448b9bd05"
+                            PermissionRoleAssigmentId = "47e02336-7c63-42ef-b780-5d84390395ad",
+                            PermissionActionId = "7403cd3d-2093-43ad-b078-e427941d7d1a",
+                            PermissionNamespaceId = "aef6b819-42c4-450c-adbb-da6d496d9c76",
+                            RoleId = "b710f5f0-98a4-4453-8ac7-d9211e7810b6"
                         });
                 });
 
@@ -620,7 +622,7 @@ namespace Church_Solution_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "43fd2c28-62bc-4a80-8733-bb4448b9bd05",
+                            Id = "b710f5f0-98a4-4453-8ac7-d9211e7810b6",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -715,8 +717,8 @@ namespace Church_Solution_API.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "9f2238e6-b722-4415-a8f0-234690e79fc0",
-                            RoleId = "43fd2c28-62bc-4a80-8733-bb4448b9bd05"
+                            UserId = "fba0b88a-0c47-415d-8cf3-6e5b7de578d5",
+                            RoleId = "b710f5f0-98a4-4453-8ac7-d9211e7810b6"
                         });
                 });
 

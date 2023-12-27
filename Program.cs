@@ -1,3 +1,4 @@
+using Church_Solution_API.Helpers.DataSeeding;
 using Church_Solution_API.Helpers.Permission;
 using Church_Solution_API.Models;
 using Jose;
@@ -67,6 +68,7 @@ using (var scope = app.Services.CreateScope())
     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     context.Database.Migrate();
     context.Database.EnsureCreated();
+    //Sampledata.Initialize(app);
 }
 
 app.UseAuthorization();

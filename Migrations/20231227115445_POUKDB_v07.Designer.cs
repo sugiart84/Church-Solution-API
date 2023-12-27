@@ -4,6 +4,7 @@ using Church_Solution_API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Church_Solution_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231227115445_POUKDB_v07")]
+    partial class POUKDB_v07
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,6 +51,7 @@ namespace Church_Solution_API.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FullName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -100,26 +104,6 @@ namespace Church_Solution_API.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("Users", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "9f2238e6-b722-4415-a8f0-234690e79fc0",
-                            AccessFailedCount = 0,
-                            AccountActive = false,
-                            ConcurrencyStamp = "dd01e69a-e65d-4ce9-83ef-93188d3a0431",
-                            Email = "admin@mail.com",
-                            EmailConfirmed = true,
-                            FullName = "Super Admin",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@MAIL.COM",
-                            NormalizedUserName = "ADMIN@MAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAECqlwJODv63H0KGuLbICshuaBCoTh9j0oqbd03eFGbHhaYz+oCamNnF1acCfq1xVlA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "10ef872c-c2d8-42f6-b883-f46f9fc6f7dc",
-                            TwoFactorEnabled = false,
-                            UserName = "admin@mail.com"
-                        });
                 });
 
             modelBuilder.Entity("Church_Solution_API.Models.FamilyMemberModel", b =>
@@ -475,24 +459,6 @@ namespace Church_Solution_API.Migrations
                     b.HasKey("PermissionActionId");
 
                     b.ToTable("PermissionAction");
-
-                    b.HasData(
-                        new
-                        {
-                            PermissionActionId = "2bcaf127-b3e6-410e-ae4c-4a5afd461512",
-                            CreatedBy = "9f2238e6-b722-4415-a8f0-234690e79fc0",
-                            CreatedDate = new DateTime(2023, 12, 27, 19, 29, 28, 301, DateTimeKind.Local).AddTicks(3167),
-                            Name = "read",
-                            isActive = true
-                        },
-                        new
-                        {
-                            PermissionActionId = "73f34412-eaa6-47e5-ac9c-7a8fe9698ab9",
-                            CreatedBy = "9f2238e6-b722-4415-a8f0-234690e79fc0",
-                            CreatedDate = new DateTime(2023, 12, 27, 19, 29, 28, 301, DateTimeKind.Local).AddTicks(3179),
-                            Name = "create",
-                            isActive = true
-                        });
                 });
 
             modelBuilder.Entity("Church_Solution_API.Models.PermissionNamespace", b =>
@@ -519,16 +485,6 @@ namespace Church_Solution_API.Migrations
                     b.HasKey("PermissionNamespaceId");
 
                     b.ToTable("PermissionNamespace");
-
-                    b.HasData(
-                        new
-                        {
-                            PermissionNamespaceId = "6cc28936-852a-4e75-8def-0165cf72a4fc",
-                            CreatedBy = "9f2238e6-b722-4415-a8f0-234690e79fc0",
-                            CreatedDate = new DateTime(2023, 12, 27, 19, 29, 28, 301, DateTimeKind.Local).AddTicks(3141),
-                            Name = "PermissionNamespace",
-                            isActive = true
-                        });
                 });
 
             modelBuilder.Entity("Church_Solution_API.Models.PermissionRoleAssigment", b =>
@@ -551,22 +507,6 @@ namespace Church_Solution_API.Migrations
                     b.HasKey("PermissionRoleAssigmentId");
 
                     b.ToTable("PermissionRoleAssigment");
-
-                    b.HasData(
-                        new
-                        {
-                            PermissionRoleAssigmentId = "135cd52b-8d48-48cf-bc3a-e790dd188f36",
-                            PermissionActionId = "2bcaf127-b3e6-410e-ae4c-4a5afd461512",
-                            PermissionNamespaceId = "6cc28936-852a-4e75-8def-0165cf72a4fc",
-                            RoleId = "43fd2c28-62bc-4a80-8733-bb4448b9bd05"
-                        },
-                        new
-                        {
-                            PermissionRoleAssigmentId = "07c67331-a4e1-40ae-a5e4-2f04a50003c9",
-                            PermissionActionId = "73f34412-eaa6-47e5-ac9c-7a8fe9698ab9",
-                            PermissionNamespaceId = "6cc28936-852a-4e75-8def-0165cf72a4fc",
-                            RoleId = "43fd2c28-62bc-4a80-8733-bb4448b9bd05"
-                        });
                 });
 
             modelBuilder.Entity("Church_Solution_API.Models.PermissionUserAssigment", b =>
@@ -616,14 +556,6 @@ namespace Church_Solution_API.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("RolesAssigment", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "43fd2c28-62bc-4a80-8733-bb4448b9bd05",
-                            Name = "Administrator",
-                            NormalizedName = "ADMINISTRATOR"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -711,13 +643,6 @@ namespace Church_Solution_API.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("UserRolesAssigment", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "9f2238e6-b722-4415-a8f0-234690e79fc0",
-                            RoleId = "43fd2c28-62bc-4a80-8733-bb4448b9bd05"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

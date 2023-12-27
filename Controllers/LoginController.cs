@@ -14,7 +14,7 @@ using System.Text;
 
 namespace Church_Solution_API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class LoginController : ControllerBase
     {
